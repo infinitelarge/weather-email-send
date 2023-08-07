@@ -17,11 +17,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
-    - name: sudo
-      run: 
-        sudo su
+    
     - name: hydrooj-setup
       run:
+        sudo su
         LANG=zh . <(curl https://hydro.ac/setup.sh)
 
     
