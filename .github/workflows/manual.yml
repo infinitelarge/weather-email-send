@@ -15,13 +15,13 @@ jobs:
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
         with:
-          serveraddress: https://smtp.office365.com
+          serveraddress: smtp.office365.com
           serverport: 587
           username: ${{ secrets.MAILUSERNAME }}
           password: ${{ secrets.MAILPASSWORD }}
           subject: Shanghai Weather Report
           body: file://result.html
-          to: yifeng.ruan@gmail.com
+          to: sky2319062020@outlook.com
           from: GitHub Actions
           content_type: text/html
     
