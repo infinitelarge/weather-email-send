@@ -1,26 +1,14 @@
-#!/bin/bash
-# weather.sh
-# Copyright 2018 computer-geek64. All rights reserved.
+#!/bin/sh
 
-program=Weather
-version=1.1
-year=2018
-developer=computer-geek64
+set -eux
 
-case $1 in
--h | --help)
-  echo "$program $version"
-  echo "Copyright $year $developer. All rights reserved."
-  echo
-  echo "Usage: weather [options]"
-  echo "Option          Long Option             Description"
-  echo "-h              --help                  Show the help screen"
-  echo "-l [location]   --location [location]   Specifies the location"
-  ;;
--l | --location)
-  curl https://wttr.in/$2
-  ;;
-*)
-  curl https://wttr.in
-  ;;
-esac
+CITY=Shanghai
+LANGUAGE="zh-CN"
+UNIT=m
+UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36"
+
+curl \
+  -H "Accept-Language: $LANGUAGE" \
+  -H "User-Agent: $UA" \
+  -o result.html \
+  https://wttr.in/$CITY?format=4\&$UNIT
