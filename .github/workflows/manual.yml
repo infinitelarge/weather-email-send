@@ -11,18 +11,7 @@ jobs:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
       - name: 'Get weather report'
-        run: bash ./weather.sh
-      - name: 'Send mail'
-        uses: dawidd6/action-send-mail@master
-        with:
-          server_address: smtp.office365.com
-          server_port: 587
-          username: ${{ secrets.MAILUSERNAME }}
-          password: ${{ secrets.MAILPASSWORD }}
-          subject: Shanghai Weather Report
-          html_body: file://result.html
-          to: sky2319062020@outlook.com
-          from: GitHub Actions
+        run: bash ./weather.shh
           
     
 
